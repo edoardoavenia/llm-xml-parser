@@ -1,6 +1,6 @@
 import re
-from ..exceptions.errors import XMLFormatError
-from ..utils.logger import get_logger
+from llm_xml_parser.exceptions.errors import XMLFormatError
+from llm_xml_parser.utils.logger import get_logger
 
 logger = get_logger(__name__)
 

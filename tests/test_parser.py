@@ -2,7 +2,7 @@ import pytest
 import json
 import os
 
-from src.core.parser import parse
+from src.llm_xml_parser.core.parser import parse
 # If specific exceptions are needed, import them:
 # from src.exceptions.errors import XMLParserError, XMLStructureError, XMLFormatError
 
