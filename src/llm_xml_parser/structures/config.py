@@ -6,7 +6,7 @@ ensuring:
   - Correct structure when specifying nested dictionaries
 """
 
-from ..exceptions.errors import XMLConfigError
+from llm_xml_parser.exceptions.errors import XMLConfigError
 
 def validate_config(config: dict, current_depth: int = 0, max_depth: int = 4):
     """

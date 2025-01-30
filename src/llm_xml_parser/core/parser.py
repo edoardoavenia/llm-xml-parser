@@ -1,12 +1,12 @@
-from ..utils.logger import get_logger
-from ..utils.preprocessor import preprocess_xml
-from ..exceptions.errors import XMLFormatError, XMLStructureError
-from ..exceptions.warnings import XMLNestedWarning, XMLSingleItemWarning
-from ..structures.config import validate_config
-from ..structures.result import ParseResult
-from ..structures.node import Node
-from .lexer import tokenize
-from .validator import validate_and_flatten_tree  # Import the validation and flattening function
+from llm_xml_parser.utils.logger import get_logger
+from llm_xml_parser.utils.preprocessor import preprocess_xml
+from llm_xml_parser.exceptions.errors import XMLFormatError, XMLStructureError
+from llm_xml_parser.exceptions.warnings import XMLNestedWarning, XMLSingleItemWarning
+from llm_xml_parser.structures.config import validate_config
+from llm_xml_parser.structures.result import ParseResult
+from llm_xml_parser.structures.node import Node
+from llm_xml_parser.core.lexer import tokenize
+from llm_xml_parser.core.validator import validate_and_flatten_tree
 
 logger = get_logger(__name__)
 

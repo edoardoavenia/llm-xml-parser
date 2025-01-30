@@ -1,8 +1,8 @@
-from ..exceptions.errors import XMLStructureError
-from ..exceptions.warnings import XMLNestedWarning, XMLSingleItemWarning
-from ..structures.result import ParseResult
-from ..structures.node import Node
-from ..utils.logger import get_logger
+from llm_xml_parser.exceptions.errors import XMLStructureError
+from llm_xml_parser.exceptions.warnings import XMLNestedWarning, XMLSingleItemWarning
+from llm_xml_parser.structures.result import ParseResult
+from llm_xml_parser.structures.node import Node
+from llm_xml_parser.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
