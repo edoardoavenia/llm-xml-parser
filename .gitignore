@@ -1,0 +1,11 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test-related caches
+pytest_cache/
+
+# Dependency management
+poetry.lock

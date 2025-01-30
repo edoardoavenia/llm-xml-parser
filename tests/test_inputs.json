@@ -1,0 +1,503 @@
+[
+  {
+    "number": 0,
+    "xml": "<thinking>Questo è un test</thinking>",
+    "config": { "thinking": "single" },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "thinking": "Questo è un test"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 1,
+    "xml": "<step>A</step><step>B</step><step>C</step>",
+    "config": { "step": "list" },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "step": ["A", "B", "C"]
+    },
+    "untagged": ""
+  },
+  {
+    "number": 2,
+    "xml": "<exercise><question>Quanto fa 2+2?</question><answer>4</answer></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "exercise": "<question>Quanto fa 2+2?</question><answer>4</answer>",
+      "question": "Quanto fa 2+2?",
+      "answer": "4"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 3,
+    "xml": "<thinking>Analisi</thinking>Risposta: 42",
+    "config": { "thinking": "single" },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "thinking": "Analisi"
+    },
+    "untagged": "Risposta: 42"
+  },
+  {
+    "number": 4,
+    "xml": "<THINKING>Maiusc</THINKING>",
+    "config": { "thinking": "single" },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "thinking": "Maiusc"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 5,
+    "xml": "<container><item>1</item><item>2</item><summary>Total: 2</summary></container>",
+    "config": {
+      "container": {
+        "type": "single",
+        "children": {
+          "item": "list",
+          "summary": "single"
+        }
+      }
+    },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "container": "<item>1</item><item>2</item><summary>Total: 2</summary>",
+      "item": ["1", "2"],
+      "summary": "Total: 2"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 6,
+    "xml": "<thinking>Usa <formula>E=mc²</formula> adesso</thinking>",
+    "config": { "thinking": "single" },
+    "success": true,
+    "warnings": [
+      "Unconfigured tag <formula> found inside 'thinking'"
+    ],
+    "error": null,
+    "output": {
+      "thinking": "Usa <formula>E=mc²</formula> adesso"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 7,
+    "xml": "<step>Unico</step>",
+    "config": { "step": "list" },
+    "success": true,
+    "warnings": [
+      "List <step> contains only 1 element."
+    ],
+    "error": null,
+    "output": {
+      "step": ["Unico"]
+    },
+    "untagged": ""
+  },
+  {
+    "number": 8,
+    "xml": "<outer><inner>stuff</inner></outer>",
+    "config": { "outer": "single" },
+    "success": true,
+    "warnings": [
+      "Unconfigured tag <inner> found inside 'outer'"
+    ],
+    "error": null,
+    "output": {
+      "outer": "<inner>stuff</inner>"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 9,
+    "xml": "<misc>some text</misc><extra>stuff</extra>",
+    "config": { "misc": "single" },
+    "success": true,
+    "warnings": [
+      "Unconfigured tag <extra> found inside 'root'"
+    ],
+    "error": null,
+    "output": {
+      "misc": "some text"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 10,
+    "xml": "<step>A<detail>some info</detail></step><step>B</step>",
+    "config": { "step": "list" },
+    "success": true,
+    "warnings": [
+      "Unconfigured tag <detail> found inside 'step'"
+    ],
+    "error": null,
+    "output": {
+      "step": [
+        "A<detail>some info</detail>",
+        "B"
+      ]
+    },
+    "untagged": ""
+  },
+  {
+    "number": 11,
+    "xml": "<answer>42</answer>",
+    "config": { "thinking": "single" },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <thinking> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 12,
+    "xml": "<answer>42</answer><answer>43</answer>",
+    "config": { "answer": "single" },
+    "success": false,
+    "warnings": [],
+    "error": "Multiple <answer> found, but 'single' is required.",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 13,
+    "xml": "<answer>stuff</answer>",
+    "config": { "steps": "list" },
+    "success": false,
+    "warnings": [],
+    "error": "List <steps> is empty (1+ elements required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 14,
+    "xml": "<thinking>Test",
+    "config": { "thinking": "single" },
+    "success": false,
+    "warnings": [],
+    "error": "Unclosed tags remain. Malformed XML structure.",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 15,
+    "xml": "<a><b></a></b>",
+    "config": { "a": "single" },
+    "success": false,
+    "warnings": [],
+    "error": "Mismatched tags: opened <b>, but closed </a>",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 16,
+    "xml": "<level1><level2><level3><level4><level5><level6>Hi</level6></level5></level4></level3></level2></level1>",
+    "config": {
+      "level1": {
+        "type": "single",
+        "children": {
+          "level2": {
+            "type": "single",
+            "children": {
+              "level3": {
+                "type": "single",
+                "children": {
+                  "level4": {
+                    "type": "single",
+                    "children": {
+                      "level5": {
+                        "type": "single",
+                        "children": {
+                          "level6": "single"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Configuration too deep: maximum 4 levels supported",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 17,
+    "xml": "<exercise><question>Domanda di test</question><answer>Risposta di test</answer></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "exercise": "<question>Domanda di test</question><answer>Risposta di test</answer>",
+      "question": "Domanda di test",
+      "answer": "Risposta di test"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 18,
+    "xml": "<exercise><question>Domanda senza risposta</question></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <answer> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 19,
+    "xml": "<exercise><question>Domanda di test 1</question><answer>Risposta di test 1</answer></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "exercise": "<question>Domanda di test 1</question><answer>Risposta di test 1</answer>",
+      "question": "Domanda di test 1",
+      "answer": "Risposta di test 1"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 20,
+    "xml": "<exercise><question>Domanda di test 2</question></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <answer> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 21,
+    "xml": "<exercise><answer>Risposta di test 3</answer></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <question> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 22,
+    "xml": "<exercise></exercise>",
+    "config": {
+      "exercise": {
+        "type": "single",
+        "children": {
+          "question": "single",
+          "answer": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <question> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 23,
+    "xml": "<container><item><name>Item A</name><desc>Description A</desc></item></container>",
+    "config": {
+      "container": {
+        "type": "single",
+        "children": {
+          "item": {
+            "type": "single",
+            "children": {
+              "name": "single",
+              "desc": "single"
+            }
+          }
+        }
+      }
+    },
+    "success": true,
+    "warnings": [],
+    "error": null,
+    "output": {
+      "container": "<item><name>Item A</name><desc>Description A</desc></item>",
+      "item": "<name>Item A</name><desc>Description A</desc>",
+      "name": "Item A",
+      "desc": "Description A"
+    },
+    "untagged": ""
+  },
+  {
+    "number": 24,
+    "xml": "<container><item><name>Item B</name></item></container>",
+    "config": {
+      "container": {
+        "type": "single",
+        "children": {
+          "item": {
+            "type": "single",
+            "children": {
+              "name": "single",
+              "desc": "single"
+            }
+          }
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <desc> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 25,
+    "xml": "<sections><section><paragraph>Paragrafo 1.1</paragraph></section><section><paragraph>Paragrafo 2.1</paragraph></section></sections>",
+    "config": {
+      "sections": {
+        "type": "single",
+        "children": {
+          "section": "list"
+        }
+      }
+    },
+    "success": true,
+    "warnings": [
+      "Unconfigured tag <paragraph> found inside 'section'",
+      "Unconfigured tag <paragraph> found inside 'section'"
+    ],
+    "error": null,
+    "output": {
+      "sections": "<section><paragraph>Paragrafo 1.1</paragraph></section><section><paragraph>Paragrafo 2.1</paragraph></section>",
+      "section": [
+        "<paragraph>Paragrafo 1.1</paragraph>",
+        "<paragraph>Paragrafo 2.1</paragraph>"
+      ]
+    },
+    "untagged": ""
+  },
+  {
+    "number": 26,
+    "xml": "<sections><section></section><section><paragraph>Paragrafo 2.2</paragraph></section></sections>",
+    "config": {
+      "sections": {
+        "type": "list",
+        "children": {
+          "section": "list",
+          "paragraph": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <paragraph> not found (single required).",
+    "output": {},
+    "untagged": ""
+  },
+  {
+    "number": 27,
+    "xml": "<article><title>Titolo Articolo</title></article>",
+    "config": {
+      "article": {
+        "type": "single",
+        "children": {
+          "title": "single",
+          "subtitle": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <subtitle> not found (single required).",
+    "output": {
+      "title": "Titolo Articolo",
+      "article": ""
+    },
+    "untagged": ""
+  },
+  {
+    "number": 28,
+    "xml": "<parent></parent>",
+    "config": {
+      "parent": {
+        "type": "single",
+        "children": {
+          "child": "single"
+        }
+      }
+    },
+    "success": false,
+    "warnings": [],
+    "error": "Tag <child> not found (single required).",
+    "output": {},
+    "untagged": ""
+  }
+]
