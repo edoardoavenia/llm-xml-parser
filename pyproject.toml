@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "xml-parser-llm"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "A minimal XML parser for structured output from LLM"
 authors = ["edoardoavenia <aveniaedoardo1@gmail.com>"]
 readme = "README.md"
+license = "MIT"
 packages = [
-    { include = "src/llm_xml_parser" }
+    { include = "llm_xml_parser", from = "src"}
 ]
 
 [tool.poetry.dependencies]
