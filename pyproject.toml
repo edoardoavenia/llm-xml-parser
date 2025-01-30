@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xml-parser-llm"
-version = "0.1.1"
+version = "0.1.2"
 description = "A minimal XML parser for structured output from LLM"
 authors = ["edoardoavenia <aveniaedoardo1@gmail.com>"]
 readme = "README.md"
@@ -10,7 +10,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = ">=3.7,<4.0"
 
 
 [tool.poetry.group.dev.dependencies]
