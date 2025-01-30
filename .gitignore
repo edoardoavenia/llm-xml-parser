@@ -9,3 +9,5 @@ pytest_cache/
 
 # Dependency management
 poetry.lock
+
+dist/
